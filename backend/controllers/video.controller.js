@@ -39,6 +39,7 @@ const getVideoById = catchAsync(async (req, res) => {
 const postVideos = catchAsync(async (req, res) => {
     try {
         const newVideo = await videoService.postNewVideo(req.body);
+        console.log(req.body)
         if (newVideo) {
             res.status(httpStatus.CREATED).send(newVideo);
         }

@@ -119,7 +119,7 @@ const getSearchedVideos = async (title, genres, sortBy, contentRating) => {
 const searchVideoById = async (videoId) => {
     
       try {
-          const video = await Video.findOne({"_id":videoId.toString()})
+          const video = await Video.find({"_id":videoId.toString()})
           console.log("video from services",video );
         if (video) {
             return video;
@@ -133,13 +133,15 @@ const searchVideoById = async (videoId) => {
 
 //For Posting of new video from Body
 
-const postNewVideo = async(body) => {
+const postNewVideo = async (body) => {
     try {
         if (body.length > 1) {
             const video = await Video.insertMany(body);
+            console.log("video from if",video)
+            await video.save();
             return video;
         } else {
-            const {videoLink, title, genre, contentRating, releaseDate, previewImage } = body;
+            const {releaseDate,previewImage,videoLink,title,genre,contentRating} = body;
    
             if (videoLink && title && genre && contentRating && releaseDate && previewImage) {
                 const newVideo = await Video.create(body);
