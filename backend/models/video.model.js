@@ -2,6 +2,9 @@ const mongoose = require("mongoose");
 
 const VideoSchema = new mongoose.Schema(
   {
+    _id: {
+    type: String,
+  },
     videoLink: {
       type: String,
       required: true,
@@ -50,7 +53,6 @@ const VideoSchema = new mongoose.Schema(
 );
 
 
-
 VideoSchema.static.isTitleTaken = async (title) => {
   const video = await this.findOne({ title });
   return !!video;
@@ -59,3 +61,4 @@ VideoSchema.static.isTitleTaken = async (title) => {
 
 const Video = mongoose.model("Video", VideoSchema);
 module.exports = { Video };
+

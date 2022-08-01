@@ -22,9 +22,10 @@ const getVideos = catchAsync(async (req, res) => {
 
 const getVideoById = catchAsync(async (req, res) => {
     try {
-        const { videoId } = req.params;
+        const {videoId}   = req.params;
+        console.log(typeof videoId);
         const video = await videoService.searchVideoById(videoId);
-
+        console.log("video from controller",video)
         if (video) {
             res.status(httpStatus.OK).send(video);
         }

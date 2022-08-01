@@ -1,0 +1,23 @@
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons");
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+.GenrePanels{
+padding:1rem 2rem 2rem 2rem;
+background-color:#202020;
+}
+.bfont
+{
+font-family: 'Roboto' !important;
+font-style: normal !important;
+font-weight: 400 !important;
+}
+.icon::before{
+    margin-left: 10px;
+    font-family: "Material Icons";
+    content:'\e8d5';
+    font-weight: 800;
+}
+.active{
+    background-color: "#ffffff";
+    color: "#586069";
+    border-radius: "16px";
+}

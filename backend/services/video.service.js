@@ -116,9 +116,11 @@ const getSearchedVideos = async (title, genres, sortBy, contentRating) => {
 
 //For Searching Video By ID
 
-const searchVideoById = async(id) => {
-    try {
-        const video = await Video.findById(id);
+const searchVideoById = async (videoId) => {
+    
+      try {
+          const video = await Video.findOne({"_id":videoId.toString()})
+          console.log("video from services",video );
         if (video) {
             return video;
         } else {

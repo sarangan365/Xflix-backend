@@ -4,10 +4,10 @@
  * @param {Function} fn - input function that catchAsync wraps around
  */
 
-function catchAsyn(fn) {
+function catchAsync(fn) {
     return function(req, res, next) {
         Promise.resolve(fn(req, res, next)).catch(err => next(err));
     }
 }
 
-module.exports = catchAsyn;
+module.exports = catchAsync;
